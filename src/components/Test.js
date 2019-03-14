@@ -7,10 +7,9 @@ class TextApi extends Component {
   }
 
   componentDidMount() {
-    this.props.callApi(() => fakeApiCall().then(res => {
+    this.props.watch(() => fakeApiCall().then(res => {
       this.setState({ data: res })
-    })
-    )
+    }))
   }
 
   render() {

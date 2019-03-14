@@ -8,7 +8,7 @@ export default class ApiCatchingContextWrap extends Component {
     isCallingApi: false
   }
 
-  callApi = async (fnCallApi) => {
+  watch = async (fnCallApi) => {
     this.setState({isCallingApi: true})
     try {
       await fnCallApi();
@@ -27,7 +27,7 @@ export default class ApiCatchingContextWrap extends Component {
     return (
       <ApiCatchingContext.Provider
         value={{
-          callApi: this.callApi,
+          watch: this.watch,
           isCallingApi: this.state.isCallingApi
         }}
       >
